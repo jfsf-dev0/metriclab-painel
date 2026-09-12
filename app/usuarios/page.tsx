@@ -248,7 +248,7 @@ export default function UsuariosPage() {
           {activeTab === 'usuarios' && (
             <button
               onClick={handleOpenModal}
-              className="h-10 px-5 bg-ink text-white text-xs font-semibold uppercase tracking-wider rounded-none hover:bg-neutral-800 transition-colors"
+              className="h-10 px-5 bg-ink text-white text-xs font-semibold uppercase tracking-wider rounded-[8px] hover:bg-neutral-800 transition-colors cursor-pointer"
             >
               Adicionar usuário
             </button>
@@ -257,7 +257,7 @@ export default function UsuariosPage() {
 
         {/* ABA 1: LISTAGEM DE USUÁRIOS */}
         {activeTab === 'usuarios' && (
-          <section className="w-full border border-hairline bg-surface overflow-hidden">
+          <section className="w-full border border-hairline bg-surface rounded-[12px] overflow-hidden">
             <div className="grid grid-cols-12 px-6 py-3 border-b border-hairline bg-canvas text-[11px] font-medium text-muted uppercase tracking-wider">
               <div className="col-span-3">Nome</div>
               <div className="col-span-2">Telefone</div>
@@ -339,7 +339,7 @@ export default function UsuariosPage() {
               </p>
             </div>
 
-            <div className="w-full border border-hairline bg-surface overflow-hidden">
+            <div className="w-full border border-hairline bg-surface rounded-[12px] overflow-hidden">
               <div className="grid grid-cols-12 px-6 py-3 border-b border-hairline bg-canvas text-[11px] font-medium text-muted uppercase tracking-wider">
                 <div className="col-span-3">Label</div>
                 <div className="col-span-2">Telefone</div>
@@ -364,7 +364,7 @@ export default function UsuariosPage() {
                       <div className="col-span-2 font-mono text-xs text-ink-soft">
                         {cred.telefone}
                       </div>
-                      <div className="col-span-3 font-mono text-xs text-ink bg-canvas px-2.5 py-1 w-fit border border-hairline">
+                      <div className="col-span-3 font-mono text-xs text-ink bg-canvas px-2.5 py-1 w-fit border border-hairline rounded-[4px]">
                         {cred.senha}
                       </div>
                       <div className="col-span-2 text-ink-soft">
@@ -373,7 +373,7 @@ export default function UsuariosPage() {
                       <div className="col-span-2 text-right">
                         <button
                           onClick={() => copyToClipboard(copyText, cred.id)}
-                          className="px-3 py-1 bg-canvas hover:bg-neutral-200 border border-hairline text-xs font-medium text-ink transition-colors"
+                          className="px-3 py-1 bg-canvas hover:bg-neutral-200 border border-hairline rounded-[8px] text-xs font-medium text-ink transition-colors cursor-pointer"
                         >
                           {isCopied ? 'Copiado!' : 'Copiar'}
                         </button>
@@ -390,7 +390,7 @@ export default function UsuariosPage() {
       {/* MODAL DE ADIÇÃO DE USUÁRIO */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-ink/40 z-50 flex items-center justify-center p-4">
-          <div className="w-full max-w-md bg-surface border border-hairline p-8 rounded-none shadow-none">
+          <div className="w-full max-w-md bg-surface border border-hairline p-8 rounded-[12px] shadow-sm">
             <div className="mb-6">
               <h3 className="text-base font-bold text-ink tracking-tight">
                 Adicionar Usuário
@@ -412,7 +412,7 @@ export default function UsuariosPage() {
                   onChange={(e) => setNome(e.target.value)}
                   placeholder="Ex: Carlos Mendes"
                   required
-                  className="w-full h-11 border border-hairline rounded-none px-3 text-ink text-sm bg-transparent outline-none focus:border-ink placeholder:text-muted"
+                  className="w-full h-11 border border-hairline rounded-[8px] px-3 text-ink text-sm bg-transparent outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 placeholder:text-muted transition-all"
                 />
               </div>
 
@@ -427,7 +427,7 @@ export default function UsuariosPage() {
                   onChange={(e) => setTelefone(applyPhoneMask(e.target.value))}
                   placeholder="(11) 9.0000-0000"
                   required
-                  className="w-full h-11 border border-hairline rounded-none px-3 text-ink text-sm font-mono bg-transparent outline-none focus:border-ink placeholder:text-muted"
+                  className="w-full h-11 border border-hairline rounded-[8px] px-3 text-ink text-sm font-mono bg-transparent outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 placeholder:text-muted transition-all"
                 />
               </div>
 
@@ -439,7 +439,7 @@ export default function UsuariosPage() {
                 <select
                   value={perfil}
                   onChange={(e) => setPerfil(e.target.value as PerfilUsuario)}
-                  className="w-full h-11 border border-hairline rounded-none px-3 text-ink text-sm bg-surface outline-none focus:border-ink"
+                  className="w-full h-11 border border-hairline rounded-[8px] px-3 text-ink text-sm bg-surface outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                 >
                   <option value="encarregado">Encarregado (Acesso RDO)</option>
                   <option value="supervisor">Supervisor (Acesso Painel)</option>
@@ -457,12 +457,12 @@ export default function UsuariosPage() {
                     type="text"
                     readOnly
                     value={senhaTemporaria}
-                    className="flex-1 h-11 border border-hairline border-r-0 rounded-none px-3 text-ink text-sm font-mono bg-canvas"
+                    className="flex-1 h-11 border border-hairline border-r-0 rounded-l-[8px] px-3 text-ink text-sm font-mono bg-canvas"
                   />
                   <button
                     type="button"
                     onClick={() => copyToClipboard(senhaTemporaria, 'temp-pwd')}
-                    className="h-11 px-4 border border-hairline bg-canvas hover:bg-neutral-200 text-xs font-semibold text-ink transition-colors"
+                    className="h-11 px-4 border border-hairline rounded-r-[8px] bg-canvas hover:bg-neutral-200 text-xs font-semibold text-ink transition-colors cursor-pointer"
                   >
                     {copiedId === 'temp-pwd' ? 'Copiado!' : 'Copiar'}
                   </button>
@@ -470,7 +470,7 @@ export default function UsuariosPage() {
               </div>
 
               {modalError && (
-                <div className="p-2.5 bg-red-50 border border-red-200 text-erro text-xs">
+                <div className="p-2.5 bg-red-50 border border-red-200 rounded-[8px] text-erro text-xs">
                   {modalError}
                 </div>
               )}
@@ -480,7 +480,7 @@ export default function UsuariosPage() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full h-12 bg-ink text-white font-semibold text-sm rounded-none hover:bg-neutral-800 transition-colors disabled:opacity-50"
+                  className="w-full h-12 bg-ink text-white font-semibold text-sm rounded-[8px] hover:bg-neutral-800 transition-colors disabled:opacity-50 cursor-pointer"
                 >
                   {submitting ? 'Gerando acesso...' : 'Enviar acesso'}
                 </button>
@@ -488,7 +488,7 @@ export default function UsuariosPage() {
                   type="button"
                   onClick={() => setIsModalOpen(false)}
                   disabled={submitting}
-                  className="w-full h-10 border border-hairline text-ink text-xs font-medium rounded-none hover:bg-canvas transition-colors"
+                  className="w-full h-10 border border-hairline text-ink text-xs font-medium rounded-[8px] hover:bg-canvas transition-colors cursor-pointer"
                 >
                   Cancelar
                 </button>

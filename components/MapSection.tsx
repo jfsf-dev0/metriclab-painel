@@ -136,7 +136,7 @@ export function MapSection({ pins, loading }: MapSectionProps) {
 
   return (
     <section aria-label="Mapa de frentes" className="w-full">
-      <div className="border border-hairline bg-surface overflow-hidden">
+      <div className="border border-hairline bg-surface rounded-[12px] overflow-hidden">
         {/* Header da seção */}
         <div className="px-6 py-3.5 border-b border-hairline flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -146,15 +146,15 @@ export function MapSection({ pins, loading }: MapSectionProps) {
           </div>
           <div className="flex items-center space-x-4 text-xs">
             <span className="flex items-center space-x-1.5">
-              <span className="w-2 h-2 rounded-none bg-ink" />
+              <span className="w-2 h-2 rounded-full bg-ink" />
               <span className="text-muted">RDO</span>
             </span>
             <span className="flex items-center space-x-1.5">
-              <span className="w-2 h-2 rounded-none bg-accent" />
+              <span className="w-2 h-2 rounded-full bg-accent" />
               <span className="text-muted">Vistoria</span>
             </span>
             <span className="flex items-center space-x-1.5">
-              <span className="w-2 h-2 rounded-none bg-erro" />
+              <span className="w-2 h-2 rounded-full bg-erro" />
               <span className="text-muted">Ocorrência</span>
             </span>
             <span className="text-muted font-mono border-l border-hairline pl-4">
@@ -205,7 +205,7 @@ export function MapSection({ pins, loading }: MapSectionProps) {
                     <div className="col-span-2 font-mono text-muted">{pin.horario}</div>
                     <div className="col-span-2 flex items-center space-x-1.5">
                       <span
-                        className="w-1.5 h-1.5 rounded-none"
+                        className="w-1.5 h-1.5 rounded-full"
                         style={{ backgroundColor: getTipoColor(pin.tipo) }}
                       />
                       <span

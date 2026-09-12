@@ -35,7 +35,7 @@ export function KPISection({ stats, loading }: KPISectionProps) {
 
   return (
     <section aria-label="KPIs em tempo real" className="w-full">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-hairline bg-surface divide-y sm:divide-y-0 sm:divide-x divide-hairline">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-hairline bg-surface rounded-[12px] overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-hairline">
         {kpis.map((kpi) => (
           <div key={kpi.id} className="p-6 flex flex-col justify-between">
             <span className="text-[12px] font-normal uppercase tracking-[0.1em] text-muted mb-3">

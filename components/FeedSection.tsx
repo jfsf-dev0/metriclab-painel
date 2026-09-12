@@ -37,7 +37,7 @@ export function FeedSection({ items, loading }: FeedSectionProps) {
 
   return (
     <section aria-label="Feed ao vivo" className="w-full">
-      <div className="border border-hairline bg-surface">
+      <div className="border border-hairline bg-surface rounded-[12px] overflow-hidden">
         {/* Header da seção */}
         <div className="px-6 py-3.5 border-b border-hairline flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -84,7 +84,7 @@ export function FeedSection({ items, loading }: FeedSectionProps) {
 
                 {/* Tipo */}
                 <div className="col-span-3 sm:col-span-2 flex items-center space-x-1.5">
-                  <span className={`w-1.5 h-1.5 rounded-none ${getDotBg(item.tipo)}`} />
+                  <span className={`w-1.5 h-1.5 rounded-full ${getDotBg(item.tipo)}`} />
                   <span className={`text-[13px] font-semibold ${getBadgeColor(item.tipo)}`}>
                     {item.tipo}
                   </span>
