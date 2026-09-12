@@ -45,19 +45,30 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen bg-canvas flex items-center justify-center p-4">
-      <div className="w-full max-w-sm bg-surface border border-hairline p-8 rounded-none">
-        <div className="mb-2">
-          <span className="text-[32px] font-bold tracking-tight text-ink font-sans">
-            m<span className="text-accent">.</span>
+    <main className="min-h-screen bg-[#F2F2F2] flex items-center justify-center p-4">
+      <div className="w-full max-w-[420px] bg-white border border-[#E2E2DC] rounded-[16px] p-8 sm:p-12 shadow-sm">
+        {/* Logo m. centralizado no topo */}
+        <div className="text-center mb-6">
+          <span className="text-[32px] font-bold text-[#111111] leading-none tracking-tight font-sans">
+            m<span className="text-[#F5A623]">.</span>
           </span>
         </div>
-        <p className="text-[13px] font-normal text-muted mb-8 tracking-normal">
-          Acesso restrito · Demo Lote 15 e 19
-        </p>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Título abaixo do logo */}
+        <div className="text-center mb-8">
+          <h1 className="text-[20px] font-semibold text-[#111111] tracking-[-0.3px]">
+            Painel Operacional
+          </h1>
+          <p className="text-[13px] font-normal text-[#9CA3AF] mt-1.5">
+            Acesso restrito · Demo Lote 15 e 19
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
+            <label className="block text-[12px] font-medium text-[#6B7280] uppercase tracking-[0.08em] mb-2">
+              Senha de acesso
+            </label>
             <input
               type="password"
               value={password}
@@ -67,10 +78,10 @@ export default function LoginPage() {
               }}
               placeholder="Digite a senha de acesso"
               autoFocus
-              className="w-full h-12 border border-hairline rounded-none px-3.5 text-ink text-sm bg-transparent outline-none focus:border-ink placeholder:text-muted transition-colors"
+              className="w-full h-[52px] border border-[#E2E2DC] rounded-[8px] px-4 text-[15px] text-[#111111] bg-white outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 placeholder:text-[#9CA3AF] transition-all"
             />
             {error && (
-              <p className="text-erro text-xs mt-2 font-normal">
+              <p className="text-red-500 text-[13px] mt-2 text-center font-normal">
                 {error}
               </p>
             )}
@@ -79,11 +90,18 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading || !password}
-            className="w-full h-12 bg-ink text-white font-semibold text-sm rounded-none hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full h-[52px] bg-[#111111] text-white font-semibold text-[15px] rounded-[8px] hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {loading ? 'Entrando...' : 'Entrar'}
           </button>
         </form>
+
+        {/* Powered by MetricLab no rodapé */}
+        <div className="text-center mt-8 pt-6 border-t border-[#E2E2DC]/60">
+          <p className="text-[12px] text-[#9CA3AF]">
+            Powered by <span className="text-[#F5A623] font-semibold">MetricLab</span>
+          </p>
+        </div>
       </div>
     </main>
   );

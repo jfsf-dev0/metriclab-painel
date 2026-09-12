@@ -38,14 +38,31 @@ export function Header() {
     <header className="w-full bg-surface border-b-[1.5px] border-ink sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Left: Logo & Title */}
-        <div className="flex items-center space-x-3">
-          <span className="text-2xl font-bold tracking-tight text-ink font-sans">
-            m<span className="text-accent">.</span>
-          </span>
-          <span className="text-hairline font-light">|</span>
-          <h1 className="text-base font-semibold text-ink tracking-tight">
-            Painel Operacional · Lote 15 e 19
-          </h1>
+        <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-3">
+            <span className="text-2xl font-bold tracking-tight text-ink font-sans">
+              m<span className="text-accent">.</span>
+            </span>
+            <span className="text-hairline font-light">|</span>
+            <span className="text-base font-semibold text-ink tracking-tight">
+              Lote 15 e 19
+            </span>
+          </div>
+
+          <nav className="flex items-center space-x-1 pl-4 border-l border-hairline">
+            <button
+              onClick={() => router.push('/')}
+              className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-ink hover:text-accent transition-colors"
+            >
+              Painel
+            </button>
+            <button
+              onClick={() => router.push('/usuarios')}
+              className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-ink hover:text-accent transition-colors"
+            >
+              Usuários
+            </button>
+          </nav>
         </div>
 
         {/* Right: Real-time Date/Time and Exit */}
