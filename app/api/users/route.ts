@@ -14,8 +14,20 @@ export async function GET() {
         .order('id', { ascending: true }),
     ]);
 
+    const normalizedUsers = (usersRes.data || [])
+      .map((u: any) => ({
+        id: u.id,
+        nome: u.nome || u.nome_exibicao || 'Usuário',
+        telefone: u.telefone || (u.telefone_e164 ? u.telefone_e164.replace(/\D/g, '').replace(/^55/, '') : ''),
+        perfil: u.perfil || 'encarregado',
+        status: u.status || (u.ativo ? 'ativo' : 'inativo'),
+        senha_temporaria: u.senha_temporaria,
+        created_at: u.created_at,
+      }))
+      .filter((u: any) => u.nome && u.telefone);
+
     return NextResponse.json({
-      users: usersRes.data || [],
+      users: normalizedUsers,
       credentials: credsRes.data || [],
     });
   } catch (err: any) {
